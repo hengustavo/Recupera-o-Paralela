@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lojinha do Bundinha</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Lojinha do bundinha</h1>
-    <form action="exe4.php" method="post">
-        <label for="Produto">Produto:</label>
-        <input type="text" name="produto" id="produto"><br>
-        <label for="Preço">Preço:</label>
-        <input type="number" name="preço" id="preço">
-        <br><button type="submit">Enviar</button>
-
-    </form>
-    
+    <div class="container">
+        <h1>Lojinha do Bundinha</h1>
+        <form action="exe4.php" method="post">
+            <label for="produto">Produto:</label>
+            <input type="text" name="produto" id="produto" required>
+            
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" id="preco" step="0.01" min="0" required>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
