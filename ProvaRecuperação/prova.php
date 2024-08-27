@@ -3,43 +3,33 @@
 $frase = $_GET['frase'];
 echo"Frase normal: $frase<br>";
 
-//maiuscula
-$minuscula = Strtoupper($frase);
-echo"<br>Frase minuscula: $minucusla<br>";
+//minuscula
+$fraseMinuscula = strtolower($frase);
+echo "Frase em minúsculas: $fraseMinuscula<br>";
 
 //posição no meio da frase
-echo "<br>número de caracteres da frase:".strlen($minuscula)."<br>";
-$meio = substr($minucusla,strlen($minuscula)*1/2, 1);
-echo"Caracter no meio da frase: ".$meio."<br>";
-
-$tamanho = strlen($frase);
-$frase = strtoupper($frase);
-    for ($i = 0; $i < $tamanho; $i++) {
-        if ($frase[$i] == "A" || $frase[$i] == "E" || $frase[$i] == "I" || $frase[$i] == "O" || $frase[$i] == "U") {
-            $frase[$i] = "x";
-        }
-    }
+$comprimento = strlen($fraseMinuscula);
+$meio = intval($comprimento / 2);
+$caractereMeio = $fraseMinuscula[$meio];
+echo "Caractere na posição do meio: $caractereMeio<br>";
 
 //troca todas as vogais por X
-echo "<br>Frase com vogais em x: $frase<br>";
+$vogais = 'aeiou';
+$vogalCount = 0;
+$novaFrase = '';
 
-$semvogal = '';
-$naovogal = 0;
-$vogais = ['A', 'E', 'I', 'O', 'U'];
-for ($i = 0; $i < strlen($minucusla); $i++) {
-    $caractere = $minucusla[$i];
-    // Verificar se o caractere é uma vogal
-    if (in_array($caractere, $vogais)) {
-        $semvogal .= 'X';
+for ($i = 0; $i < $comprimento; $i++) {
+    if (strpos($vogais, $fraseMinuscula[$i]) !== false) {
+        $novaFrase .= $fraseMinuscula[$i];
+        $vogalCount++;
     } else {
-        $semvogal .= $caractere;
-        $naovogal++;
+        $novaFrase .= 'X';
     }
 }
-// Exibir a quantidade de caracteres que não são vogais
-echo "Quantidade de caracteres que não são vogais: $naovogal<br>";
+echo "Frase com letras não vogais trocadas por 'X': $novaFrase<br>";
+echo "Quantidade de caracteres que são vogais: $vogalCount<br>";
 
-$inverso = strrev($minucusla);
-//frase de forma inversa
-echo "<br>A frase de forma inversa ficará: $inverso<br>"
+$novaFraseApartirP = "p" . substr($fraseMinuscula, strpos($fraseMinuscula, 'p') + 1);
+$novaFraseInversaMaiuscula = strtoupper(strrev($novaFraseApartirP));
+echo "Frase a partir da letra 'p' invertida e em maiúsculas: $novaFraseInversaMaiuscula\n";
 ?>
